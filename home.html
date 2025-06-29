@@ -1,0 +1,33 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comfort Care</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        // Pop-up messages (3 only)
+        const popupMessages = [
+            "You are beautiful 💖",
+            "You are kind and strong 🌸",
+            "You will achieve your dreams 💫"
+        ];
+
+        let shown = 0;
+        function showPopup() {
+            if (shown < popupMessages.length) {
+                alert(popupMessages[shown]);
+                shown++;
+            }
+        }
+    </script>
+</head>
+<body onload="showPopup()">
+    <h1>Welcome to ComfortCare💘</h1>
+    <p>Thanks for coming here! You will be having fun and enthusiastic moments with me from now on 😊</p>
+    
+    <a href="{{ url_for('chat') }}">
+        <button style="font-size: 18px; padding: 10px 20px;">Talk to Lumi</button>
+    </a>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat with Lumi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #fff0f5;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 100px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #cc3366;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 70%;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #cc3366;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #aa0044;
+        }
+
+        .response {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .response p {
+            background-color: #fef0f5;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .you {
+            text-align: right;
+            font-weight: bold;
+            color: #444;
+        }
+
+        .lumi {
+            text-align: left;
+            color: #cc3366;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chat with Lumi 🩷</h1>
+        <form method="POST">
+            <input type="text" name="message" placeholder="Type your message" required>
+            <button type="submit">Send</button>
+        </form>
+
+        {% if user_message %}
+            <div class="response">
+                <p class="you">You: {{ user_message }}</p>
+                <p class="lumi">Lumi: {{ bot_response }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
